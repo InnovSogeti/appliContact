@@ -3,60 +3,81 @@
         <form action="/adduser" name="adduser" method="post">
             <h2>Participation au jeu</h2>
             <div class="form-group">
-                <label for="userfname">Prénom</label>
-                <input type="text" class="form-control" name="userfname" placeholder="Prénom">
+                <label for="userfname">Prénom *</label>
+                <input type="text" class="form-control" name="userfname" placeholder="Prénom" required>
             </div>
             <div class="form-group">
-                <label for="userlname">Nom</label>
-                <input type="text" class="form-control" name="userlname" placeholder="Nom">
+                <label for="userlname">Nom *</label>
+                <input type="text" class="form-control" name="userlname" placeholder="Nom" required>
             </div>
             <div class="form-group">
-                <label for="useremail">Email</label>
-                <input type="text" class="form-control" name="useremail" placeholder="Nom">
+                <label for="useremail">Email *</label>
+                <input type="email" class="form-control" name="useremail" placeholder="Email" required>
             </div>
             <div class="form-group">
                 <label for="userpro">Numéro Pro</label>
-                <input type="text" class="form-control" name="userpro" placeholder="numéro Pro">
+                <input type="text" class="form-control" name="userpro" placeholder="Numéro Pro" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
             </div>
             <div class="form-group">
                 <label for="usernum">Numéro Perso</label>
-                <input type="text" class="form-control" name="usernum" placeholder="Nom">
+                <input type="text" class="form-control" name="usernum" placeholder="Num Perso" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
             </div>
             <div class="form-group">
                 <label for="userlinkedin">Linkedin</label>
-                <input type="text" class="form-control" name="userlinkedin" placeholder="Nom">
+                <input type="text" class="form-control" name="userlinkedin" placeholder="LinkedIn">
             </div>
             <div class="form-group">
-                <label for="userviadeo">Viadeo</label>
-                <input type="text" class="form-control" name="userviadeo" placeholder="Nom">
+                <label for="userViadeo">Viadeo</label>
+                <input type="text" class="form-control" name="userViadeo" placeholder="Viadeo">
             </div>
             <div class="form-group">
-                <label for="userviadeo">A quoi avez-vous participé ?</label>
+                <label>A quoi avez-vous participé ?</label>
             </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="mario" value="mario" /> Mario</label>
+            </div>
+            </br>
+            <div class="checkbox">
+                <label><input type="checkbox" name="pepper" value="pepper" /> Robot Pepper</label>
+            </div>
+            </br>
+            <div class="checkbox">
+                <label><input type="checkbox" name="photo" value="photo" /> Concours photo</label>
+            </div>
+            </br>
+            </br>
             <div class="form-group">
-                <input type="checkbox" /> Mario
-            </div>
-            <div class="form-group">
-                <input type="checkbox" /> Robot Pepper
-            </div>
-            <div class="form-group">
-                <input type="checkbox" /> Concours photo
-            </div>
-            <div class="container"><br/>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                      <input type="checkbox"/>J'autorise sogeti a garder mes infos pour me recontacter
+                <div>
+                    <label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <label><input type="checkbox" name="ok" value="ok"/> J'autorise sogeti à garder mes infos pour me recontacter</label>
                     </label>
-                    </div>
                 </div>
                 <div id="collapseOne" aria-expanded="false" class="collapse">
-                        <label for="userviadeo">Entrez vos compétences</label>
-                </br>
-                    <input type="checkbox" /> A checkbox
+                    <label>Entrez vos compétences</label>
+                    </br>
+                    <input type="checkbox" /> JEE </br>
+                    <input type="checkbox" /> C </br>
+                    <input type="checkbox" /> JS </br>
+                    <input type="checkbox" /> C++ </br>
+                    </br>
+                    <label>Secteur demandé</label>
+                    <div class="radio">
+                        <label for="infra"><input type="radio" name="secteur" value="infra" /> Infra </label></br>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="secteur" value="digital" /> Digital</label></br>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="secteur" value="test" /> Test</label></br>
+                    </div>
                 </div>
             </div>
+            </br>
             <button type="submit" class="btn btn-block btn-primary">Valider</button>
+            </br>
+            <label>* : Champ obligatoire</label>
+            </br>
+            </br>
         </form>
     </div>
 </div>

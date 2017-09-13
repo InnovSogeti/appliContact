@@ -1,6 +1,13 @@
 .checkbox { margin: 0; }
 
-body
+/* Set black background color, white text and some padding */
+footer 
 {
-    background-image: url("logo.png");
+    background-color: #555;
+    color: #FFFFFF;
+    padding: 15px;
+}
+
+div {
+    display: block;
 }
