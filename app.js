@@ -12,7 +12,9 @@ var db = monk('localhost:27017/appliContact');
 //chemin vers les fichiers dans des variables
 //var routes = require('./routes/index');
 var routes = require('./src/persistance/visiteurPersistance');
+//var service_web = require('./src/service_web/visiteurServiceWeb');
 var users = require('./routes/users');
+//vm.runInThisContext(fs.readFileSync(__dirname + "./src/service_web/visiteurServiceWeb.js"))
 
 var app = express();
 
@@ -34,6 +36,8 @@ app.use(function(req,res,next){
 });
 
 app.use('/', routes);
+app.use(require('./src/service_web/visiteurServiceWeb'));
+//app.use('/', service);
 app.use('/users', users);
 
 module.exports = app;

@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-//accueil
-router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Express' });
-});
-
 //Cree un obj visiteur
 function creatObj(req, res) {
     var visiteur = {
@@ -23,18 +18,15 @@ function creatObj(req, res) {
         userPepper: req.body.pepper,
         userPhoto: req.body.photo
     };
-    if (req.body.secteur == "infra" && req.body.ok == "ok")
-    {
+    if (req.body.secteur == "infra" && req.body.ok == "ok") {
         visiteur.userInfra = "infra";
     }
 
-    if (req.body.secteur == "digital" && req.body.ok == "ok")
-    {
+    if (req.body.secteur == "digital" && req.body.ok == "ok") {
         visiteur.userDigital = "digital";
     }
 
-    if (req.body.secteur == "test" && req.body.ok == "ok")
-    {
+    if (req.body.secteur == "test" && req.body.ok == "ok") {
         visiteur.userTest = "test";
     }
     persistance(visiteur, req, res);
