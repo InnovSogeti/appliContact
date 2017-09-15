@@ -7,7 +7,6 @@ const VisiteurPersistence = require('./../../app/persistence/visiteurPersistence
 const visiteurPersistence = new VisiteurPersistence(db);
 
   it('should pass object with correct values to save only once', function () {
-    console.log('Mock -->')
     var visiteur = {
       prenom: 'Jean',
       email: 'jean.dupont@gmail.com',

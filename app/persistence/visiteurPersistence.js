@@ -19,7 +19,7 @@ module.exports = class VisteurPersistence {
             competenceDigital: req.body.competenceDigital,
             competenceTest: req.body.competenceTest,
             jeuMario: req.body.jeuMario,
-            jeuPepper: req.body.jeuMPepper,
+            jeuPepper: req.body.jeuPepper,
             jeuPhoto: req.body.jeuPhoto
         };
         if (req.body.secteur == "infra" && req.body.ok == "ok") {
@@ -45,19 +45,18 @@ module.exports = class VisteurPersistence {
 
         // envoie à la bdd
         collection.insert({
-            "username": visiteur.userfName,
-            "email": visiteur.useremail,
-            "lname": visiteur.userlName,
-            "num": visiteur.userNum,
-            "numpro": visiteur.userPro,
-            "linkedin": visiteur.userLinkedin,
-            "viadeo": visiteur.userViadeo,
-            "infra": visiteur.userInfra,
-            "digital": visiteur.userDigital,
-            "test": visiteur.userTest,
-            "mario": visiteur.userMario,
-            "pepper": visiteur.userPepper,
-            "photo": visiteur.userPhoto
+            "username": visiteur.prenom,
+            "email": visiteur.email,
+            "lname": visiteur.nom,
+            "num": visiteur.telephone,
+            "linkedin": visiteur.linkedin,
+            "viadeo": visiteur.viadeo,
+            "infra": visiteur.infra,
+            "digital": visiteur.digital,
+            "test": visiteur.test,
+            "mario": visiteur.jeuMario,
+            "pepper": visiteur.jeuPepper,
+            "photo": visiteur.jeuPhoto
         }, function (err, doc) {
             if (err) {
                 // error
