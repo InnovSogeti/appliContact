@@ -12,18 +12,18 @@ module.exports = class VisteurPersistence {
 
         // envoie à la bdd
         collection.insert({
-            "username": visiteur.prenom,
+            "prenom": visiteur.prenom,
             "email": visiteur.email,
-            "lname": visiteur.nom,
-            "num": visiteur.telephone,
+            "nom": visiteur.nom,
+            "telephone": visiteur.telephone,
             "linkedin": visiteur.linkedin,
             "viadeo": visiteur.viadeo,
-            "infra": visiteur.competenceInfra,
-            "digital": visiteur.competenceDigital,
-            "test": visiteur.competenceTest,
-            "mario": visiteur.jeuMario,
-            "pepper": visiteur.jeuPepper,
-            "photo": visiteur.jeuPhoto
+            "competenceInfra": visiteur.competenceInfra,
+            "competenceDigital": visiteur.competenceDigital,
+            "competenceTest": visiteur.competenceTest,
+            "jeuMario": visiteur.jeuMario,
+            "jeuPepper": visiteur.jeuPepper,
+            "jeuPhoto": visiteur.jeuPhoto
         }, function (err, doc) {
             if (err) {
                 // error
