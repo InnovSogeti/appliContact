@@ -1,8 +1,8 @@
-module.exports = function(app, visiteurPersistence) {
+module.exports = function (app, visiteurPersistence) {
     /**
      * Ajout d'un visiteur
      */
-    app.post('/adduser', function(req, res) {
+    app.post('/adduser', function (req, res) {
         console.log('==> /adduser')
         var visiteur = {
             prenom: req.body.prenom,
@@ -15,19 +15,19 @@ module.exports = function(app, visiteurPersistence) {
             competenceDigital: req.body.competenceDigital,
             competenceTest: req.body.competenceTest,
             jeuMario: req.body.jeuMario,
-            jeuPepper: req.body.jeuMPepper,
+            jeuPepper: req.body.jeuPepper,
             jeuPhoto: req.body.jeuPhoto
         };
-        if (req.body.secteur == "infra" && req.body.ok == "ok") {
-            visiteur.userInfra = "infra";
+        if (req.body.secteur == "competenceInfra" && req.body.ok == "ok") {
+            visiteur.competenceInfra = "infra";
         }
 
-        if (req.body.secteur == "digital" && req.body.ok == "ok") {
-            visiteur.userDigital = "digital";
+        if (req.body.secteur == "competenceDigital" && req.body.ok == "ok") {
+            visiteur.competenceDigital = "digital";
         }
 
-        if (req.body.secteur == "test" && req.body.ok == "ok") {
-            visiteur.userTest = "test";
+        if (req.body.secteur == "competenceTest" && req.body.ok == "ok") {
+            visiteur.competenceTest = "test";
         }
         visiteurPersistence.save(visiteur);
         res.render('end', { message: 'OK' });

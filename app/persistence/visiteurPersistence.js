@@ -3,39 +3,6 @@ module.exports = class VisteurPersistence {
     constructor(db) {
         this.db = db;
     }
-
-    /**
-     * Crée un obj visiteur
-     */
-    createVisiteur(req, res) {
-        var visiteur = {
-            prenom: req.body.prenom,
-            email: req.body.email,
-            nom: req.body.nom,
-            telephone: req.body.telephone,
-            linkedin: req.body.linkedin,
-            viadeo: req.body.viadeo,
-            competenceInfra: req.body.competenceInfra,
-            competenceDigital: req.body.competenceDigital,
-            competenceTest: req.body.competenceTest,
-            jeuMario: req.body.jeuMario,
-            jeuPepper: req.body.jeuMPepper,
-            jeuPhoto: req.body.jeuPhoto
-        };
-        if (req.body.secteur == "infra" && req.body.ok == "ok") {
-            visiteur.userInfra = "infra";
-        }
-
-        if (req.body.secteur == "digital" && req.body.ok == "ok") {
-            visiteur.userDigital = "digital";
-        }
-
-        if (req.body.secteur == "test" && req.body.ok == "ok") {
-            visiteur.userTest = "test";
-        }
-        save(visiteur, req, res);
-    };
-
     /**
      * Enregistrer le visiteur
      */
@@ -45,19 +12,18 @@ module.exports = class VisteurPersistence {
 
         // envoie à la bdd
         collection.insert({
-            "username": visiteur.userfName,
-            "email": visiteur.useremail,
-            "lname": visiteur.userlName,
-            "num": visiteur.userNum,
-            "numpro": visiteur.userPro,
-            "linkedin": visiteur.userLinkedin,
-            "viadeo": visiteur.userViadeo,
-            "infra": visiteur.userInfra,
-            "digital": visiteur.userDigital,
-            "test": visiteur.userTest,
-            "mario": visiteur.userMario,
-            "pepper": visiteur.userPepper,
-            "photo": visiteur.userPhoto
+            "username": visiteur.prenom,
+            "email": visiteur.email,
+            "lname": visiteur.nom,
+            "num": visiteur.telephone,
+            "linkedin": visiteur.linkedin,
+            "viadeo": visiteur.viadeo,
+            "infra": visiteur.competenceInfra,
+            "digital": visiteur.competenceDigital,
+            "test": visiteur.competenceTest,
+            "mario": visiteur.jeuMario,
+            "pepper": visiteur.jeuPepper,
+            "photo": visiteur.jeuPhoto
         }, function (err, doc) {
             if (err) {
                 // error
