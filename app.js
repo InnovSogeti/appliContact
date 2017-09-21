@@ -11,6 +11,10 @@ const mongo = require('mongodb');
 const monk = require('monk');
 const http = require('http');
 var engines = require('consolidate');
+//const Instascan = require('instascan');
+//const Instascan = require('instascan-ngfar');
+
+
 
 const app = express()
 
@@ -34,6 +38,10 @@ app.listen(3000, function () {
 // Templates pages
 app.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
+});
+
+app.get('/aff', function (req, res, next) {
+  res.render('aff', { title: 'Express' });
 });
 
 // REST Services

@@ -7,16 +7,27 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="/css/style.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="manifest" href="/manifest.json">    
+        <meta name="theme-color" content="#db5945">
+        <link rel="icon" sizes="192x192" href="/images/sogeti_splash.jpeg">
+        <!--<link rel="manifest" href="/css/manifest.json">-->
+        <link rel="canonical" href="http://localhost:3000/" />        
         <title>Sogeti-DevFest</title>
     </head>
 
     <body>
-        <script>
+        <!--<script>
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js');
-            }
-        </script>
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+                }
+            </script>-->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -28,83 +39,13 @@
         </nav>
         <title>Sogeti-DevFest</title>
 
+        <a href="/aff" >Link Button</a>
         <div class="container">
             <div class="card">
                 <form action="/adduser" name="adduser" method="post">
-                    <h2>Participation au jeu</h2>
+                    <% include common/infos_perso%>
                     <div class="form-group">
-                        <label for="prenom">Prénom *</label>
-                        <input type="text" class="form-control" name="prenom" placeholder="Prénom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="nom">Nom *</label>
-                        <input type="text" class="form-control" name="nom" placeholder="Nom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="telephone">Numéro de téléphone</label>
-                        <input type="text" class="form-control" name="telephone" placeholder="Numéro de téléphone" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                    </div>
-                    <div class="form-group">
-                        <label for="linkedin">Linkedin</label>
-                        <input type="text" class="form-control" name="linkedin" placeholder="LinkedIn">
-                    </div>
-                    <div class="form-group">
-                        <label for="viadeo">Viadeo</label>
-                        <input type="text" class="form-control" name="viadeo" placeholder="Viadeo">
-                    </div>
-                    <div class="form-group">
-                        <label>A quoi avez-vous participé ?</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="jeuMario" value="mario" /> Mario</label>
-                    </div>
-                    </br>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="jeuPepper" value="pepper" /> Robot Pepper</label>
-                    </div>
-                    </br>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="jeuPhoto" value="photo" /> Concours photo</label>
-                    </div>
-                    </br>
-                    </br>
-                    <div class="form-group">
-                        <div>
-                            <label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                <label><input type="checkbox" name="ok" value="ok"/> J'autorise sogeti à garder mes infos pour me recontacter</label>
-                            </label>
-                        </div>
-                        <div id="collapseOne" aria-expanded="false" class="collapse">
-                            <label>Entrez vos compétences</label>
-                            </br>
-                            <div class="checkbox">
-                                <label><input type="checkbox" /> JEE </label> </br>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" /> C </label></br>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" /> JS </label></br>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" /> C++ </label></br>
-                            </div>
-                            </br>
-                            <label>Secteur demandé</label>
-                            <div class="radio">
-                                <label><input type="radio" name="secteur" value="competenceInfra" /> Infra </label></br>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="secteur" value="competenceDigital" /> Digital</label></br>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="secteur" value="competenceTest" /> Test</label></br>
-                            </div>
-                        </div>
+                        <% include common/infos%>
                     </div>
                     </br>
                     <button type="submit" class="btn btn-block btn-primary">Valider</button>

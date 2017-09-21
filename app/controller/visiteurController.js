@@ -12,14 +12,24 @@ module.exports = function (app, visiteurPersistence) {
             linkedin: req.body.linkedin,
             viadeo: req.body.viadeo,
             competenceInfra: req.body.competenceInfra,
+            competenceInfra: req.body.competenceSecu,
             competenceDigital: req.body.competenceDigital,
             competenceTest: req.body.competenceTest,
             jeuMario: req.body.jeuMario,
             jeuPepper: req.body.jeuPepper,
-            jeuPhoto: req.body.jeuPhoto
+            jeuPhoto: req.body.jeuPhoto,
+            text: req.body.text,
+            competencejee: req.body.infracompetence_jee,
+            competencejs: req.body.infracompetence_js,
+            competencecpp: req.body.infracompetence_cpp,
+            competencec: req.body.infracompetence_c
         };
         if (req.body.secteur == "competenceInfra" && req.body.ok == "ok") {
             visiteur.competenceInfra = "infra";
+        }
+
+        if (req.body.secteur == "competenceSecu" && req.body.ok == "ok") {
+            visiteur.competenceSecu = "Secu";
         }
 
         if (req.body.secteur == "competenceDigital" && req.body.ok == "ok") {
@@ -29,7 +39,16 @@ module.exports = function (app, visiteurPersistence) {
         if (req.body.secteur == "competenceTest" && req.body.ok == "ok") {
             visiteur.competenceTest = "test";
         }
-        visiteurPersistence.save(visiteur);
-        res.render('end', { message: 'OK' });
+
+        if (req.body.ok == "ok") {
+            console.log('==> OK');
+            visiteurPersistence.save(visiteur);
+            res.render('end', { message: 'OK' });
+        }
+        else {
+            console.log('==> NOP');
+            // sinon renvoie vers la meme page
+            res.redirect("/");
+        }
     });
 }
