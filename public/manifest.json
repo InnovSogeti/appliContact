@@ -1,0 +1,22 @@
+{
+  "short_name": "Sogeti",
+  "name": "Sogeti",
+  "icons": [
+    {
+      "src": "/images/icon_48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/images/icon_96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/images/icon_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "http://localhost:3000/"
+}
