@@ -19,7 +19,7 @@ module.exports = class VisteurPersistence {
             "linkedin": visiteur.linkedin,
             "viadeo": visiteur.viadeo,
             "competenceInfra": visiteur.competenceInfra,
-            "competenceSecu": visiteur.competenceSecu,            
+            "competenceSecu": visiteur.competenceSecu,
             "competenceDigital": visiteur.competenceDigital,
             "competenceTest": visiteur.competenceTest,
             "jeuMario": visiteur.jeuMario,
@@ -29,7 +29,9 @@ module.exports = class VisteurPersistence {
             "JEE": visiteur.competencejee,
             "c++": visiteur.competencecpp,
             "c": visiteur.competencec,
-            "js": visiteur.competencejs
+            "js": visiteur.competencejs,
+            "scrum": visiteur.scrum,
+            "agile": visiteur.agile
         }, function (err, doc) {
             if (err) {
                 // error

@@ -5,7 +5,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- This script loads your compiled module.-->
+        <script type="text/javascript" src="/javascripts/jsqrscanner.nocache.js"></script>                
         <link href="/css/style.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="css/JsQRScanner.css">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#db5945">
         <link rel="icon" sizes="192x192" href="/images/sogeti_splash.jpeg">
@@ -40,6 +43,7 @@
         <title>Sogeti-DevFest</title>
 
         <a href="/aff" >Link Button</a>
+        <script type="text/javascript"  src="/javascripts/scannedText.js"></script>
         <div class="container">
             <div class="card">
                 <form action="/adduser" name="adduser" method="post">
@@ -48,7 +52,7 @@
                         <% include common/infos%>
                     </div>
                     </br>
-                    <button type="submit" class="btn btn-block btn-primary">Valider</button>
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Valider</button>
                     </br>
                     <label>* : Champs obligatoire</label>
                     </br>

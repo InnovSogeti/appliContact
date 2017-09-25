@@ -5,31 +5,52 @@
 </div>
 <div class="panel-group" id="accordion">
     <div class="collapseOne panel-collapse collapse">
-        <label>Secteur demandé</label>
-        <div class="radio">
+        </br>
+        <label>Votre profil </label>
+        <div class="checkbox">
+            <div class="checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;<label><input name="competenceInfra" type="checkbox" value="infra"/> Infra </label>
+            </div>
+            </br>
+            <div class="checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;<label><input name="competenceTest" type="checkbox" value="test"/> Testing </label>
+            </div>
+            </br>
+            <div class="checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;<label><input name="competenceDigital" type="checkbox" value="digital" /> Digital </label>
+            </div>
+            </br>
+            <div class="checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;<label><input name="competenceSecu" type="checkbox" value="secu"/> Securitée </label>
+            </div>    
+        </div>
+        </br>
+        <label>Votre expertise </label>
+        <div class="checkbox">
             <div>
                 <label data-toggle="collapse" data-target="#collapseInfra" aria-expanded="false" aria-controls="collapseInfra">
-                <label><input type="radio" name="secteur" value="competenceInfra" /> Infra </label></br>
+                <label><input type="checkbox" name="secteur" value="technique" /> Technique </label></br>
             </div>
             <div id="collapseInfra" aria-expanded="false" class="collapse">
                 <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_jee" type="checkbox" value="jee"/> JEE </label> </br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="technique_jee" type="checkbox" value="jee"/> JEE </label> </br>
                 </div>
                 <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_c" type="checkbox" value="c"/> C </label></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="technique_c" type="checkbox" value="c"/> C </label></br>
                 </div>
                 <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_js" type="checkbox" value="js" /> JS </label></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="technique_js" type="checkbox" value="js" /> JS </label></br>
                 </div>
                 <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_cpp" type="checkbox" value="c++"/> C++ </label></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="technique_cpp" type="checkbox" value="c++"/> C++ </label></br>
                 </div>
             </div>
         </div>
-        <div class="radio">
+        </br>
+        <div class="checkbox">
             <div>
                 <label data-toggle="collapse" data-target="#collapseSecu" aria-expanded="false" aria-controls="collapseSecu">                                            
-                <label><input type="radio" name="secteur" value="competenceSecu" /> Secu </label></br>
+                <label><input type="checkbox" name="secteur" value="fonctionnel" /> Fonctionnel </label></br>
             </div>
             <div id="collapseSecu" aria-expanded="false" class="collapse">
                 <div class="checkbox">
@@ -46,31 +67,26 @@
                 </div>
             </div>
         </div>
-        <div class="radio">
+        </br>
+        <div class="checkbox">
             <div>
                 <label data-toggle="collapse" data-target="#collapseDigital" aria-expanded="false" aria-controls="collapseDigital">
-                <label><input type="radio" name="secteur" value="competenceDigital" /> Digital</label></br>
+                <label><input type="checkbox" name="secteur" value="projet" /> Gestion de projet</label></br>
             </div>
             <div id="collapseDigital" aria-expanded="false" class="collapse">
                 <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_jee" type="checkbox" value="jee"/> JEE </label> </br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="projet_scrum" type="checkbox" value="scrum"/> Scrum </label> </br>
                 </div>
                 <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_c" type="checkbox" value="c"/> C </label></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="projet_agile" type="checkbox" value="agile"/> Agile </label></br>
                 </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_js" type="checkbox" value="js" /> JS </label></br>
-                </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_cpp" type="checkbox" value="c++"/> C++ </label></br>
-                </div>
-                </div>
+            </div>
+            </br>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="3" name="text"></textarea>
             </div>
         </div>
         </br>
-        <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="3" name="text"></textarea>
-        </div>
     </div>
 </div>
