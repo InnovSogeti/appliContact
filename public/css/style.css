@@ -8,6 +8,13 @@ footer
     padding: 15px;
 }
 
+.left 
+{
+    position: absolute;
+    right: 10%;
+    top: 0px;
+}
+
 div {
     display: block;
 }
