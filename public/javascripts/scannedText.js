@@ -1,21 +1,23 @@
 function onQRCodeScanned(scannedText)
 {
-    var scannedTextMemo = document.getElementById("scannedTextMemo");
+    var prenom = document.getElementById("prenom");
     var nom = document.getElementById("nom");
     var email = document.getElementById("email");    
-    
-    if(scannedTextMemo)
+    var test = scannedText.split('\n');
+
+    //verif du format de la Vcard
+    if( test[0] != "BEGIN:VCARD"){
+        return("Error");
+    }
+
+    if(prenom)
     {
-        console.log(scannedText)        
-        scannedTextMemo.value = scannedText;//contient ce qui est dans le qrcode
         split0 = scannedText.split("\nN:");
         split0 = split0[1].split(';');
-        scannedTextMemo.value = split0[0];
+        prenom.value = split0[0];
     }
     if(nom)
     {
-        console.log(scannedText)        
-        nom.value = scannedText;//contient ce qui est dans le qrcode
         split0 = scannedText.split("\nN:");
         split0 = split0[1].split(';');
         split0 = split0[1].split('\n');
@@ -23,8 +25,6 @@ function onQRCodeScanned(scannedText)
     }
     if(email)
     {
-        console.log(scannedText)        
-        email.value = scannedText;//contient ce qui est dans le qrcode
         split0 = scannedText.split("EMAIL:");
         split0 = split0[1].split('\n');
         email.value = split0[0];

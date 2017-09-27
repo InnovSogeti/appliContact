@@ -1,47 +1,6 @@
 <!DOCTYPE html>
-
-<html lang="fr">
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <!-- This script loads your compiled module.-->
-        <script type="text/javascript" src="/javascripts/jsqrscanner.nocache.js"></script>                
-        <link href="/css/style.css" rel="stylesheet" type="text/css">
-        <link type="text/css" rel="stylesheet" href="css/JsQRScanner.css">        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#db5945">
-        <link rel="icon" sizes="192x192" href="/images/sogeti_splash.jpeg">
-        <!--<link rel="manifest" href="/css/manifest.json">-->
-        <link rel="canonical" href="http://localhost:3000/" />        
-        <title>Sogeti-DevFest</title>
-    </head>
-
-    <body>
-        <!--<script>
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }, function(err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                    });
-                });
-                }
-            </script>-->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                <a class="navbar-brand" href="/">
-                    <img alt="Sogeti - Devfest" >
-                    <!--<img class="left" src="images/logo.jpg" alt="Logo de Sogeti" width="15%"/>-->
-                </a>
-                </div>
-            </div>
-        </nav>
-
+        <% include common/header%>
+        
         <a href="/aff" >Link Button</a>
         <script type="text/javascript"  src="/javascripts/scannedText.js"></script>
         <div class="container">
@@ -49,7 +8,7 @@
                 <form action="/adduser" name="adduser" method="post">
                     <% include common/infos_perso%>
                     <div class="form-group">
-                        <% include common/infos%>
+                        <% include common/infos_competences%>
                     </div>
                     </br>
                     <button type="submit" class="btn btn-success btn-lg btn-block">Valider</button>

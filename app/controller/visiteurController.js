@@ -38,14 +38,15 @@ module.exports = function (app, visiteurPersistence) {
         if (req.body.secteur == "competenceTest" && req.body.ok == "ok") {
             visiteur.competenceTest = "test";
         }*/
-        if (req.body.secteur == "technique") {
-            console.log("==>LA");            
+        console.log(req.body.secteur);
+        if (req.body.technique == "technique") {
+            console.log("==>Technique");            
             visiteur.competencejee = req.body.technique_jee;
             visiteur.competencejs = req.body.technique_js;
             visiteur.competencecpp = req.body.technique_cpp;
             visiteur.competencec = req.body.technique_c;
         }
-        if(req.body.secteur = "projet") {
+        if(req.body.projet = "projet") {
             visiteur.agile = req.body.projet_agile;
             visiteur.scrum = req.body.projet_scrum;
         }

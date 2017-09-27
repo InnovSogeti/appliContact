@@ -1,29 +1,44 @@
 <!DOCTYPE html>
-
 <html lang="fr">
+    <head>
+        <!-- This script loads your compiled module.-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/javascripts/jsqrscanner.nocache.js"></script>
+        <!--Meta-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#db5945">
+        <!--Link-->
+        <link rel="icon" sizes="192x192" href="/images/sogeti_splash.jpeg">
+        <link type="text/css" rel="stylesheet" href="css/JsQRScanner.css">                
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">        
+        <link href="/css/style.css" rel="stylesheet" type="text/css">        
+        <link rel="manifest" href="/scripts/manifest.json">
+        <link rel="canonical" href="http://localhost:3000/" />        
+        <title>Sogeti-DevFest</title>
+    </head>
 
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="/manifest.json">    
-    <title>Sogeti-DevFest</title>
-</head>
-
-<body>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js');
-        }
-    </script>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            <a class="navbar-brand" href="/">
-                <img alt="Sogeti - Devfest" >
-            </a>
+    <body>
+        <!--<script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+                }
+            </script>-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    <img alt="Sogeti - Devfest" >
+                    <!--<img class="left" src="images/logo.jpg" alt="Logo de Sogeti" width="15%"/>-->
+                </a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>

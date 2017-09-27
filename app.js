@@ -1,6 +1,3 @@
-/**
- * appel desdifférents modules 
- */
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -11,20 +8,7 @@ const mongo = require('mongodb');
 const monk = require('monk');
 const http = require('http');
 var engines = require('consolidate');
-//const Instascan = require('instascan');
-//const Instascan = require('instascan-ngfar');
-
-
-
 const app = express()
-
-/**
- * permet l'utilisation des pages ejs + dossier public en static
- */
-
-/*app.set('views', __dirname + '/views');
-app.engine('html', engines.mustache);
-app.set('view engine', 'html');*/
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());

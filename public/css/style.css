@@ -31,3 +31,23 @@ div {
     background-image: linear-gradient(to bottom, #ff4511, #ff4511);
     border-color: #ff4511 #ff4511 #ff4511;
 }
+
+/*@font-face {
+    font-family: 'arial regular';
+    src: url('/css/fonts/Arial-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'cac_champagneregular';
+    src: url('cac_champagne-webfont.ttf');
+}
+
+p
+{
+    font-family: 'cac_champagneregular';
+}
+
+p
+{
+    font-family: "arial regular";
+}*/
