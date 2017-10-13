@@ -2,6 +2,11 @@ module.exports = function (app, visiteurPersistence) {
     /**
      * Ajout d'un visiteur
      */
+    function callback(data)
+    {
+        return(data);
+    }
+
     app.post('/adduser', function (req, res) {
         console.log('==> /adduser')
         var visiteur = {
@@ -18,41 +23,13 @@ module.exports = function (app, visiteurPersistence) {
             jeuMario: req.body.jeuMario,
             jeuPepper: req.body.jeuPepper,
             jeuPhoto: req.body.jeuPhoto,
-            text: req.body.text,
-            competencejee: "null",
-            competencejs: "null",
-            competencecpp: "null",
-            competencec: "null",
-            scrum: "null",
-            agile: "null"
+            profil: req.body.button,
+            metier: req.body.metier
         };
-        /*if (req.body.secteur == "competenceInfra" && req.body.ok == "ok") {
-            visiteur.competenceInfra = "infra";
-        }
-        if (req.body.secteur == "competenceSecu" && req.body.ok == "ok") {
-            visiteur.competenceSecu = "Secu";
-        }
-        if (req.body.secteur == "competenceDigital" && req.body.ok == "ok") {
-            visiteur.competenceDigital = "digital";
-        }
-        if (req.body.secteur == "competenceTest" && req.body.ok == "ok") {
-            visiteur.competenceTest = "test";
-        }*/
-        console.log(req.body.secteur);
-        if (req.body.technique == "technique") {
-            console.log("==>Technique");            
-            visiteur.competencejee = req.body.technique_jee;
-            visiteur.competencejs = req.body.technique_js;
-            visiteur.competencecpp = req.body.technique_cpp;
-            visiteur.competencec = req.body.technique_c;
-        }
-        if(req.body.projet = "projet") {
-            visiteur.agile = req.body.projet_agile;
-            visiteur.scrum = req.body.projet_scrum;
-        }
+        debugger;
         if (req.body.ok == "ok") {
             console.log('==> OK');
-            visiteurPersistence.save(visiteur);
+            visiteurPersistence.save(visiteur, callback);
             res.render('end', { message: 'OK' });
         }
         else {

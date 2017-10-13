@@ -13,12 +13,15 @@
     "ejs": "^2.5.7",
     "express": "~4.15.2",
     "instascan": "^1.0.0",
+    "jQuery": "^1.7.4",
     "jade": "~1.11.0",
+    "jsdom": "^11.3.0",
     "mongodb": "^2.2.31",
     "monk": "^6.0.3",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2",
-    "sinon": "^3.2.1"
+    "sinon": "^3.2.1",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "mocha": "^3.5.3"

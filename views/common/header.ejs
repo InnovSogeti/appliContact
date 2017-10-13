@@ -5,6 +5,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/javascripts/jsqrscanner.nocache.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
         <!--Meta-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#db5945">
@@ -14,11 +15,24 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">        
         <link href="/css/style.css" rel="stylesheet" type="text/css">        
         <link rel="manifest" href="/scripts/manifest.json">
-        <link rel="canonical" href="http://localhost:3000/" />        
-        <title>Sogeti-DevFest</title>
+        <link rel="canonical" href="http://localhost:3000/" />
+        <!--<link href="https://fonts.googleapis.com/css?family=Germania+One" rel="stylesheet">-->
+        <title></title>
     </head>
 
     <body>
+        <script>
+            $(function() 
+            {
+                $.getJSON('site_map.json',function(data){
+                    var obj = data; //tous le fichier JSON dans un obj
+                    var site_map = Object.keys(obj);
+                    document.querySelector("title").textContent += data[site_map[0]];
+                    document.getElementById("title").innerHTML = data[site_map[0]];
+            });
+      });
+    </script>
+
         <!--<script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
@@ -32,13 +46,11 @@
                 });
                 }
             </script>-->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                <a class="navbar-brand" href="/">
-                    <img alt="Sogeti - Devfest" >
-                    <!--<img class="left" src="images/logo.jpg" alt="Logo de Sogeti" width="15%"/>-->
-                </a>
+        <header>
+            <div class="head_all">
+                <img class="left" src="images/logo.jpg" alt="groupe Sogeti" width="30%">                    
+                <div>
+                    <font color="white"><h1 id="title"></h1></font>
                 </div>
             </div>
-        </nav>
+        </header>

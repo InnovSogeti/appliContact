@@ -3,90 +3,97 @@
     <input name="ok" type="radio" data-toggle="collapse" data-target=".collapseOne.in" value="nop" checked /> Non  &#160&#160&#160&#160&#160&#160
     <input name="ok" type="radio" data-toggle="collapse" data-target=".collapseOne:not(.in)" value="ok"/> Oui
 </div>
+<script type="text/javascript" src="/javascripts/collapse.js"></script>
 <div class="panel-group" id="accordion">
     <div class="collapseOne panel-collapse collapse">
         </br>
         <label>Votre profil </label>
-        <div class="checkbox">
-            <div class="checkbox">
-                &nbsp;&nbsp;&nbsp;&nbsp;<label><input name="competenceInfra" type="checkbox" value="infra"/> Infra </label>
-            </div>
-            </br>
-            <div class="checkbox">
-                &nbsp;&nbsp;&nbsp;&nbsp;<label><input name="competenceTest" type="checkbox" value="test"/> Testing </label>
-            </div>
-            </br>
-            <div class="checkbox">
-                &nbsp;&nbsp;&nbsp;&nbsp;<label><input name="competenceDigital" type="checkbox" value="digital" /> Digital </label>
-            </div>
-            </br>
-            <div class="checkbox">
-                &nbsp;&nbsp;&nbsp;&nbsp;<label><input name="competenceSecu" type="checkbox" value="secu"/> Securitée </label>
-            </div>    
+        <script type="text/javascript">
+            function showRadio() {
+                //var n = document.form.button.length;
+                n = 4; /*Mettre Ici le nom de champs*/
+                for(i=1;i<=n;i++) {
+                    if(document.getElementById('choix'+i).checked == true) 
+                    {
+                        document.getElementById('D'+i).style.display = "block";
+                    }
+                    else
+                    {
+                        document.getElementById('D'+i).style.display = "none";
+                    }
+                }
+            }
+        </script>
+        <div>
+            <p id="metier">
+    
+            </p>
         </div>
         </br>
-        <label>Votre expertise </label>
-        <div class="checkbox">
-            <div>
-                <label data-toggle="collapse" data-target="#collapseInfra" aria-expanded="false" aria-controls="collapseInfra">
-                <label><input type="checkbox" name="technique" value="technique" /> Technique </label></br>
-            </div>
-            <div id="collapseInfra" aria-expanded="false" class="collapse">
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="technique_jee" type="checkbox" value="jee"/> JEE </label> </br>
-                </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="technique_c" type="checkbox" value="c"/> C </label></br>
-                </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="technique_js" type="checkbox" value="js" /> JS </label></br>
-                </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="technique_cpp" type="checkbox" value="c++"/> C++ </label></br>
-                </div>
-            </div>
-        </div>
-        </br>
-        <div class="checkbox">
-            <div>
-                <label data-toggle="collapse" data-target="#collapseSecu" aria-expanded="false" aria-controls="collapseSecu">                                            
-                <label><input type="checkbox" name="fonctionnel" value="fonctionnel" /> Fonctionnel </label></br>
-            </div>
-            <div id="collapseSecu" aria-expanded="false" class="collapse">
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_jee" type="checkbox" value="jee"/> JEE </label> </br>
-                </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_c" type="checkbox" value="c"/> C </label></br>
-                </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_js" type="checkbox" value="js" /> JS </label></br>
-                </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="infracompetence_cpp" type="checkbox" value="c++"/> C++ </label></br>
-                </div>
-            </div>
-        </div>
-        </br>
-        <div class="checkbox">
-            <div>
-                <label data-toggle="collapse" data-target="#collapseDigital" aria-expanded="false" aria-controls="collapseDigital">
-                <label><input type="checkbox" name="projet" value="projet" /> Gestion de projet</label></br>
-            </div>
-            <div id="collapseDigital" aria-expanded="false" class="collapse">
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="projet_scrum" type="checkbox" value="scrum"/> Scrum </label> </br>
-                </div>
-                <div class="checkbox">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input name="projet_agile" type="checkbox" value="agile"/> Agile </label></br>
-                </div>
-            </div>
-            </br>
-            <div class="form-group">
-                <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="3" name="text"></textarea>
-            </div>
-        </div>
-        </br>
+        <div id="checkbox">
+        </div>                
+        <script>
+             function replaceAll(machaine, chaineARemaplacer, chaineDeRemplacement) {
+                return machaine.replace(new RegExp(chaineARemaplacer, 'g'),chaineDeRemplacement);
+            }
+            $(function() {
+              $.getJSON('config.json',function(data){
+                var obj = data; //tous le fichier JSON dans un obj
+                var metier = Object.keys(obj);
+                var i = 0;
+                var choix;
+                var value;
+                var space = " ";
+                while(metier[i]) {
+                    choix = "<label><input type=\"radio\" id=\"choix";
+                    choix = choix + (i + 1);
+                    choix = choix + "\" name=\"button\" value=\""
+                    value = replaceAll(metier[i], ' ', '_');
+                    choix = choix + value;
+                    choix = choix + "\" onclick=\"showRadio()\" />"
+                    space = space + metier[i];
+                    choix = choix + space;
+                    space = " ";
+                    choix = choix + "</label></br>"
+                    document.getElementById("metier").innerHTML +=choix;
+                    i++;
+                }
+                i = 0;
+                var z = 0;
+                var name = 'D';
+                var save = 'D';
+                var all;
+                var inter;
+                var int = 1;
+                var t = 1;
+                while(metier[i]){
+                    all = "<div id=\"";
+                    inter = data[metier[i]];
+                    inter = inter.split(',')
+                    z = 1;
+                    name = save;
+                    name = name + t;
+                    all = all + name;
+                    all = all + "\" style=\"display: none;\"><label>Votre metier :</label></br>"
+                    $('#checkbox').append(all);
+                    var append;
+                    while(inter[z]){
+                        value = replaceAll(inter[z], ' ', '_');
+                        append = "<label><input name= \"metier\"";
+                        append = append + "value=\"";
+                        append = append + value;
+                        append = append + "\"type=\"checkbox\"/>";
+                        append = append + inter[z];
+                        append = append + "</label> </br>";
+                        $("#D"+int).append(append);
+                        z++;
+                    }
+                    i++;
+                    t++;
+                    int++;
+                }
+              });
+          });
+        </script>
     </div>
 </div>
