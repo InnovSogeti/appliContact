@@ -26,7 +26,6 @@ module.exports = function (app, visiteurPersistence) {
             profil: req.body.button,
             metier: req.body.metier
         };
-        debugger;
         if (req.body.ok == "ok") {
             console.log('==> OK');
             visiteurPersistence.save(visiteur, callback);
