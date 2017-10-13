@@ -8,7 +8,9 @@ module.exports = function (app, visiteurPersistence) {
     }
 
     app.post('/adduser', function (req, res) {
-        console.log('==> /adduser')
+        console.log('==> /adduser');
+        var maintenant=new Date();
+        var jour=maintenant.getDate();
         var visiteur = {
             prenom: req.body.prenom,
             email: req.body.email,
@@ -24,17 +26,21 @@ module.exports = function (app, visiteurPersistence) {
             jeuPepper: req.body.jeuPepper,
             jeuPhoto: req.body.jeuPhoto,
             profil: req.body.button,
-            metier: req.body.metier
+            metier: req.body.metier,
+            contact: req.body.ok,
+            date: jour
         };
         if (req.body.ok == "ok") {
             console.log('==> OK');
+            visiteur.contact = "oui";
             visiteurPersistence.save(visiteur, callback);
             res.render('end', { message: 'OK' });
         }
         else {
             console.log('==> NOP');
-            // sinon renvoie vers la meme page
-            res.redirect("/");
+            visiteur.contact = "non";            
+            visiteurPersistence.save(visiteur, callback);
+            res.render('end', { message: 'OK' });
         }
     });
 }

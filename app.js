@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongo = require('mongodb');
 const monk = require('monk');
-const http = require('http');
+const https = require('https');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -22,14 +22,6 @@ var fs = require('fs');
 var cam = JSON.parse(fs.readFileSync('./public/site_map.json', 'utf8'));
 var obj = cam; //tous le fichier JSON dans un obj
 var site_map = Object.keys(obj);
-console.log(cam[site_map[1]]);
-
-/*jquery.getJSON('./public/site_map.json', function (data) {
-  var obj = data; //tous le fichier JSON dans un obj
-  var site_map = Object.keys(obj);
-  var cam = data[site_map[1]];
-});*/
-
 
 // Templates pages
 app.get('/', function (req, res, next) {
@@ -40,6 +32,10 @@ app.get('/config', function (req, res, next) {
   res.render('config', { title: 'Express' });
 });
 
+app.get('/password', function (req, res, next) {
+  res.render('password', { title: 'Express' });
+});
+
 // REST Services
 
 const db = monk('localhost:27017/appliContact');
@@ -47,8 +43,5 @@ const db = monk('localhost:27017/appliContact');
 const VisiteurPersistence = require('./app/persistence/visiteurPersistence');
 const visiteurPersistence = new VisiteurPersistence(db);
 
-const EventPersistence = require('./app/persistence/eventPersistence');
-const eventPersistence = new EventPersistence(db);
-
 require('./app/controller/visiteurController')(app, visiteurPersistence);
-require('./app/controller/eventController')(app, eventPersistence);
+require('./app/controller/password')(app);

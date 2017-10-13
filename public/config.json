@@ -1,4 +1,6 @@
 {
     "Infrastructure": "Infrastructure, Chef de projet infrastructure, Ingenieur, Service Manager",
-    "Testing": "Testing, Consultant testing principal, Consultant testing managing, Consultant testing senior"
+    "Application": "Application, ingenieur étude et developpement, Consultant Big Data, Consultant fonctionnel, Chef de projet application",
+    "Testing": "Testing, Consultant testing junior, Consultant testing confirmé, Consultant testing senior, Chef de projet testing",
+    "Sécurité": "Securite, Consultant securité junior, Consultant securité confirmé, Consultant securité senior, Chef de projet securité"
 }

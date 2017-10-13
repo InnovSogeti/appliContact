@@ -11,11 +11,10 @@ module.exports = class VisteurPersistence {
         var collection = this.db.get('visiteurs');
 
         // envoie à la bdd
-        debugger;
         collection.insert({
             "prenom": visiteur.prenom,
-            "email": visiteur.email,
             "nom": visiteur.nom,
+            "email": visiteur.email,
             "telephone": visiteur.telephone,
             "linkedin": visiteur.linkedin,
             "viadeo": visiteur.viadeo,
@@ -23,7 +22,9 @@ module.exports = class VisteurPersistence {
             "jeuPepper": visiteur.jeuPepper,
             "jeuPhoto": visiteur.jeuPhoto,
             "profil": visiteur.profil,
-            "metier": visiteur.metier
+            "metier": visiteur.metier,
+            "Contact": visiteur.contact,
+            "Jour": visiteur.date
         },
             function (err, doc) {
                 if (err) {
