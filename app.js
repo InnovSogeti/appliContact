@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const mongo = require('mongodb');
 const monk = require('monk');
 const http = require('http');
-var engines = require('consolidate');
 const app = express();
 
 app.set('view engine', 'ejs');
