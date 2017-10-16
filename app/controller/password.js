@@ -13,9 +13,7 @@ module.exports = function (app) {
                 db.collection("visiteurs").find({}).toArray(function(err, result) {
                   if (err) throw err;
                   var randomItem = result[Math.random() * result.length | 0];
-                  var str = Object.values(randomItem);
-                  console.log(str);
-                  res.render('config', { str: randomItem });
+                  res.render('common/concours', { str: randomItem });
                   db.close();
                 });
               });

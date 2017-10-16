@@ -1,39 +1,12 @@
-    <% include common/header %>
-    <div class="container">            
-        <h1>Entrez votre mot de passe</h1>
-        </br>
-        </br>
-        <form action="/password" name="password" method="post">
-            <input type="text" name="password" value="">
-            <button type="submit" class="">Valider</button>        
-        </form>
-        </br>
-        <div id="random">
-            <ul class="name">
-            </ul>
-        </div>
-        <script>
-            var str = <%- JSON.stringify(str) %>;
-            if (str != undefined){
-                var firstname = "\<li\>Prenom : ";
-                firstname = firstname + str.prenom;
-                firstname = firstname + "\</li\>";
-                $("ul").append(firstname);
-                var name = "\<li\>Nom : ";
-                name = name + str.nom;
-                name = name + "\</li\>";
-                $("ul").append(name);
-                var email = "\<li\>Email : ";
-                email = email + str.email;
-                email = email + "\</li\>";
-                $("ul").append(email);
-            }
-        </script>
-    </div>
-</body>
+<% include common/header %>
+<div class="container">            
+    <h1>Entrez votre mot de passe</h1>
+    </br>
+    </br>
+    <form action="/password" name="password" method="post">
+        <input type="password" name="password" value="">
+        <button type="submit" class="">Valider</button>        
+    </form>
+    </br>
+</div>
 <% include common/footer %>
-
-<!--
-    "Test":"Test, Consultant testing principal, Consultant testing managing, Consultant testing senior",
-    "Application":"Application, Ingenieur etude et developpement, Consultant Big Data, Consultant fonctionnelle, Chef de projet application"
--->
