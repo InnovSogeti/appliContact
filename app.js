@@ -14,10 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
-
 var fs = require('fs');
 var cam = JSON.parse(fs.readFileSync('./public/site_map.json', 'utf8'));
 var obj = cam; //tous le fichier JSON dans un obj
@@ -35,6 +31,16 @@ app.get('/config', function (req, res, next) {
 app.get('/password', function (req, res, next) {
   res.render('password', { title: 'Express' });
 });
+
+//404
+/*app.use(function(req, res, next){
+  res.setHeader('Content-Type', 'text/plain');
+  res.send(404, '404 Page not found !');
+});*/
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
 
 // REST Services
 
