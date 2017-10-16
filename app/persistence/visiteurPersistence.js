@@ -20,11 +20,10 @@ module.exports = class VisteurPersistence {
             "viadeo": visiteur.viadeo,
             "jeuMario": visiteur.jeuMario,
             "jeuPepper": visiteur.jeuPepper,
-            "jeuPhoto": visiteur.jeuPhoto,
             "profil": visiteur.profil,
             "metier": visiteur.metier,
-            "Contact": visiteur.contact,
-            "Jour": visiteur.date
+            "contact": visiteur.contact,
+            "jour": visiteur.date
         },
             function (err, doc) {
                 if (err) {

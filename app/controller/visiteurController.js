@@ -8,7 +8,6 @@ module.exports = function (app, visiteurPersistence) {
     }
 
     app.post('/adduser', function (req, res) {
-        console.log('==> /adduser');
         var maintenant=new Date();
         var jour=maintenant.getDate();
         var visiteur = {
@@ -24,20 +23,17 @@ module.exports = function (app, visiteurPersistence) {
             competenceTest: req.body.competenceTest,
             jeuMario: req.body.jeuMario,
             jeuPepper: req.body.jeuPepper,
-            jeuPhoto: req.body.jeuPhoto,
             profil: req.body.button,
             metier: req.body.metier,
             contact: req.body.ok,
             date: jour
         };
         if (req.body.ok == "ok") {
-            console.log('==> OK');
             visiteur.contact = "oui";
             visiteurPersistence.save(visiteur, callback);
             res.render('end', { message: 'OK' });
         }
         else {
-            console.log('==> NOP');
             visiteur.contact = "non";            
             visiteurPersistence.save(visiteur, callback);
             res.render('end', { message: 'OK' });
