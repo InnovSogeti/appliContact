@@ -39,7 +39,7 @@ module.exports = function (app) {
 
     app.post('/password', function (req, res) {
         mdp = req.body.password;
-        if (mdp == "devfest") {
+        if (mdp == "letirageausort") {
             var MongoClient = require('mongodb').MongoClient;
             
             var fs = require('fs');
