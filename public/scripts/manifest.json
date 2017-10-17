@@ -31,6 +31,6 @@
     }
   ],
   "background_color": "#FAFAFA",  
-  "start_url": "http://localhost:3000/",
+  "start_url": "http://149.202.223.218/",
   "orientation": "portrait"
 }

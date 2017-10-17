@@ -1,4 +1,6 @@
 {
     "Event": "Sogeti-DevFest",
-    "Cam": "ON"
+    "Cam": "ON",
+    "Bdd": "appliContact",
+    "collection": "visiteurs"
 }

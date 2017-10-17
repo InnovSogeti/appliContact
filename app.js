@@ -18,6 +18,7 @@ var fs = require('fs');
 var cam = JSON.parse(fs.readFileSync('./public/site_map.json', 'utf8'));
 var obj = cam; //tous le fichier JSON dans un obj
 var site_map = Object.keys(obj);
+var bdd = cam[site_map[2]];
 
 // Templates pages
 app.get('/', function (req, res, next) {
@@ -43,8 +44,9 @@ app.listen(3000, function () {
 })
 
 // REST Services
-
-const db = monk('localhost:27017/appliContact');
+var mymonk = "localhost:27017/" + bdd;
+const db = monk(mymonk);
+//const db = monk('localhost:27017/appliContact');
 
 const VisiteurPersistence = require('./app/persistence/visiteurPersistence');
 const visiteurPersistence = new VisiteurPersistence(db);

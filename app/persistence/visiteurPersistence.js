@@ -7,8 +7,13 @@ module.exports = class VisteurPersistence {
      * Enregistrer le visiteur
      */
     save(visiteur, callback) {
-        // creation ou recup de la collection
-        var collection = this.db.get('visiteurs');
+        var fs = require('fs');
+        var json = JSON.parse(fs.readFileSync('./public/site_map.json', 'utf8'));
+        var obj = json; //tous le fichier JSON dans un obj
+        var site_map = Object.keys(obj);
+        var collect = json[site_map[3]];
+        var collection = this.db.get(collect);
+
 
         // envoie à la bdd
         collection.insert({
@@ -28,7 +33,7 @@ module.exports = class VisteurPersistence {
             function (err, doc) {
                 if (err) {
                     // error
-                    res.send("There was a problem adding the information to the database.");
+                    //res.send("There was a problem adding the information to the database.");
                 }
                 else {
                     console.log('=> Inscription de ' + visiteur.prenom + ' ' + visiteur.nom);
