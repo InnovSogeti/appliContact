@@ -6,14 +6,14 @@ module.exports = class VisteurPersistence {
     /**
      * Enregistrer le visiteur
      */
+
     save(visiteur, callback) {
         var fs = require('fs');
         var json = JSON.parse(fs.readFileSync('./public/site_map.json', 'utf8'));
         var obj = json; //tous le fichier JSON dans un obj
         var site_map = Object.keys(obj);
         var collect = json[site_map[3]];
-        var collection = this.db.get(collect);
-
+        var collection = this.db.get(collect);          
 
         // envoie à la bdd
         collection.insert({

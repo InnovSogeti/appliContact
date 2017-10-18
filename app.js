@@ -33,12 +33,6 @@ app.get('/password', function (req, res, next) {
   res.render('password', { title: 'Express' });
 });
 
-//404
-/*app.use(function(req, res, next){
-  res.setHeader('Content-Type', 'text/plain');
-  res.send(404, '404 Page not found !');
-});*/
-
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })

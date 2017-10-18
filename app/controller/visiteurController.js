@@ -39,6 +39,28 @@ module.exports = function (app, visiteurPersistence) {
         return (res);
     }
 
+   function get(visiteur, callback) {
+        var MongoClient = require('mongodb').MongoClient;
+        var url = "mongodb://localhost:27017/appliContact";
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;          
+            var query = { prenom: visiteur.prenom };
+            db.collection("visiteurs").find(query).toArray(function(err, result) {
+                if (err) throw err;
+                var res = result.length;
+                if (res == '0') {
+                    db.close();
+                    visiteurPersistence.save(visiteur, callback);
+                }
+                else {
+                    db.close();
+                    callback("ok");
+                }
+            });
+        });
+     }
+
     app.post('/adduser', function (req, res) {
         var maintenant=new Date();
         var jour=maintenant.getDate();
@@ -66,7 +88,7 @@ module.exports = function (app, visiteurPersistence) {
             visiteur.metier = "NULL";
         if (req.body.ok == "ok") {
             visiteur.contact = "oui";
-            visiteurPersistence.save(visiteur, callback);
+            get(visiteur, callback);
             res.render('end', { message: 'OK' });
         }
         else {
