@@ -4,24 +4,24 @@ function onQRCodeScanned(scannedText)
     var nom = document.getElementById("nom");
     var email = document.getElementById("email");    
     var test = scannedText.split('\n');
-
+console.log(scannedText)
     //verif du format de la Vcard
     if( test[0] != "BEGIN:VCARD"){
         return("Error");
     }
 
-    if(prenom)
-    {
-        split0 = scannedText.split("\nN:");
-        split0 = split0[1].split(';');
-        prenom.value = split0[0];
-    }
     if(nom)
     {
         split0 = scannedText.split("\nN:");
         split0 = split0[1].split(';');
-        split0 = split0[1].split('\n');
         nom.value = split0[0];
+    }
+    if(prenom)
+    {
+        split0 = scannedText.split("\nN:");
+        split0 = split0[1].split(';');
+        split0 = split0[1].split('\n');
+        prenom.value = split0[0];
     }
     if(email)
     {

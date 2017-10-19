@@ -19,33 +19,40 @@ module.exports = function (app, visiteurPersistence) {
         my_profil = json[file[i]].split(',');
         while (my_profil[0] != profil){
             if (i > 0)
-                my_profil = json[file[i]].split(',');
+            my_profil = json[file[i]].split(',');
             i++;
         }
         if (i > 0)
-            i--;
+        i--;
         while (my_profil[j]) {
             my_profil[j] = my_profil[j].replace(/ /g, "_");
             z = 0;
-            while (metier[z]) {
-                if (metier[z] == my_profil[j]) {
-                    res[k] = my_profil[j];
-                    k++;
+            if (metier[0].length > 1) {
+                while (metier[z]) {
+                    if (metier[z] == my_profil[j]) {
+                        res[k] = my_profil[j];
+                        k++;
+                    }
+                    z++;
                 }
-                z++;
+            }
+            else {
+                if (metier == my_profil[j]) {
+                    res[0] = my_profil[j];
+                }
             }
             j++;
         }
         return (res);
     }
 
-   function get(visiteur, callback) {
+    function get(visiteur, callback) {
         var MongoClient = require('mongodb').MongoClient;
         var url = "mongodb://localhost:27017/appliContact";
 
         MongoClient.connect(url, function(err, db) {
             if (err) throw err;          
-            var query = { prenom: visiteur.prenom };
+            var query = { nom: visiteur.nom };
             db.collection("visiteurs").find(query).toArray(function(err, result) {
                 if (err) throw err;
                 var res = result.length;
@@ -94,7 +101,7 @@ module.exports = function (app, visiteurPersistence) {
         }
         else {
             visiteur.contact = "non";            
-            visiteurPersistence.save(visiteur, callback);
+            get(visiteur, callback);
             res.render('end', { message: 'OK' });
         }
     });
