@@ -17,9 +17,8 @@ module.exports = function (app, visiteurPersistence) {
         var res = [];
 
         my_profil = json[file[i]].split(',');
-        console.log(profil);
-        while (my_profil[0] != profil || json[file[i]]){
-            //if (i > 0)
+        while (my_profil[0] != profil){
+            if (i > 0)
                 my_profil = json[file[i]].split(',');
             i++;
         }
@@ -93,7 +92,6 @@ module.exports = function (app, visiteurPersistence) {
             res.render('end', { message: 'OK' });
         }
         else {
-            console.log("ICIICICICICI")
             visiteur.contact = "non";            
             visiteurPersistence.save(visiteur, callback);
             res.render('end', { message: 'OK' });
