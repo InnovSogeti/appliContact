@@ -82,11 +82,12 @@ module.exports = function (app, visiteurPersistence) {
             contact: req.body.ok,
             date: jour
         };
-        
         if (req.body.ok != "ok")
         visiteur.metier = "NULL";
         if (req.body.ok == "ok") {
-            visiteur.metier = check_profil(req.body.metier, visiteur.profil);
+            if (visiteur.profil != undefined) {
+                visiteur.metier = check_profil(req.body.metier, visiteur.profil);
+            }
             visiteur.contact = "oui";
             get(visiteur, callback);
             res.render('end', { message: 'OK' });
