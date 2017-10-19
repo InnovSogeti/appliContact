@@ -27,7 +27,7 @@ module.exports = function (app, visiteurPersistence) {
         while (my_profil[j]) {
             my_profil[j] = my_profil[j].replace(/ /g, "_");
             z = 0;
-            if (metier[0].length > 1) {
+            if ((metier != undefined) && (metier[0].length > 1)) {
                 while (metier[z]) {
                     if (metier[z] == my_profil[j]) {
                         res[k] = my_profil[j];
