@@ -7,23 +7,6 @@
     </div>
     </br>
 </div>
-<script>
-        var str = <%- JSON.stringify(str) %>;
-        if (str != undefined){
-            var firstname = "\<li\>Prenom : ";
-            firstname = firstname + str.prenom;
-            firstname = firstname + "\</li\>";
-            $("ul").append(firstname);
-            var name = "\<li\>Nom : ";
-            name = name + str.nom;
-            name = name + "\</li\>";
-            $("ul").append(name);
-            var email = "\<li\>Email : ";
-            email = email + str.email;
-            email = email + "\</li\>";
-            $("ul").append(email);
-        }
-    </script>
     </br>
     <a href="/" rel="nofollow" target="">
         Cliquer sur ce lien pour revenir à l'accueil
@@ -31,6 +14,9 @@
     </br>
     </br>
     <div class="container">
+        </br>
+        <p>Personne n'a été inscrit aujourd'hui</p>
+        </br>
         </br>
         Quelques informations : 
         <div id="stat">
