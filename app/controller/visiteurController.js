@@ -87,6 +87,7 @@ module.exports = function (app, visiteurPersistence) {
             profil: req.body.button,
             metier: req.body.metier,
             contact: req.body.ok,
+            id_salon: req.body.my_id,
             date: jour
         };
         if (req.body.ok != "ok")
@@ -97,12 +98,12 @@ module.exports = function (app, visiteurPersistence) {
             }
             visiteur.contact = "oui";
             get(visiteur, callback);
-            res.render('end', { message: 'OK' });
+            res.render('index', { my_id: req.body.my_id });
         }
         else {
             visiteur.contact = "non";            
             get(visiteur, callback);
-            res.render('end', { message: 'OK' });
+            res.render('index', { my_id: req.body.my_id });
         }
     });
 }

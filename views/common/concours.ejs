@@ -39,11 +39,82 @@
         </div>
         </br>
     </div>
+    
+    <div class="container">
+        </br>
+        Liste des visiteurs :
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+            </tr>
+            <div id="list">
+                <p class="list">
+                </p>
+            </div>
+        </table>
+
+        </br>
+    </div>
+
     <script>
         var nb = <%- JSON.stringify(nb) %>;
         var inscrits = "<p>Nombre de personnes inscrites : ";
+        var list = <%- JSON.stringify(list) %>;
+        var i = 0;
+        var visiteurs;
+
         inscrits = inscrits + nb;
         inscrits = inscrits + "</p>";
         document.getElementById("stat").innerHTML += inscrits;
+        while (list[i]) {
+            visiteurs = "<p>Nom : ";
+            visiteurs = visiteurs + list[i].nom;
+            visiteurs = visiteurs + ", Prenom : ";
+            visiteurs = visiteurs + list[i].prenom;
+            visiteurs = visiteurs + ", email : "
+            visiteurs = visiteurs + list[i].email;
+            visiteurs = visiteurs + "</p></br>";
+            document.getElementById("list").innerHTML += visiteurs;
+            i++;
+        }
     </script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 <% include footer %>
+
+<!--
+            var list = <%- JSON.stringify(list) %>;
+        var i = 0;
+
+        console.log(list[0].nom)
+        var visiteurs;
+        
+        while (list[i]) {
+            visiteurs = "<p>Nom : ";
+            visiteurs = visiteurs + list[i].nom;
+            visiteurs = visiteurs + ", Prenom : ";
+            visiteurs = visiteurs + list[i].prenom;
+            visiteurs = visiteurs + ", email : "
+            visiteurs = visiteurs + list[i].email;
+            visiteurs = visiteurs + "</p></br>";
+            document.getElementById("list").innerHTML += visiteurs;
+            i++;
+        }
+-->

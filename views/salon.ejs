@@ -1,0 +1,63 @@
+<% include common/header %>
+</br>
+
+<div class="container">
+    <a href="/add_salon" rel="nofollow" target="">
+        <button type="button" class="btn btn-success">Ajouter un salon</button>
+    </a>
+    <h1>Selectionner un salon : </h1>
+    </br>
+    <div class="panel-group" id="accordion">
+    </div>
+</div>
+
+<script>
+    var i = 0;
+    var str = <%- JSON.stringify(str) %>;
+    var count = 1;
+    var z = 0;
+
+    while (str[i]) {
+        if (str[i].nom_salon != undefined) {
+            var accord = "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 class=\"panel-title\"><a data-toggle=\"collapse\" data-parent=\"#accordion\"href=\"#collapse";
+            var liste;
+            accord = accord + count;
+            accord = accord + "\">";
+            accord = accord + str[i].nom_salon;
+            accord = accord + "</a></h4></div><div id=\"collapse"
+            accord = accord + count;
+            if (count == 1)
+                accord = accord + "\" class=\"panel-collapse collapse in\"><div class=\"panel-body\">";
+            else
+                accord = accord + "\" class=\"panel-collapse collapse\"><div class=\"panel-body\">";
+            accord = accord + "Ville : ";
+            accord = accord + str[i].ville_salon;
+            accord = accord + "</br>Description : ";
+            accord = accord + str[i].description;
+            accord = accord + "</br>Date de début : ";
+            accord = accord + str[i].date_debut;
+            accord = accord + "</br>Date de fin : ";
+            accord = accord + str[i].date_fin;
+
+            accord = accord + "<form action=\"/addid\" name=\"adduser\" method=\"post\">"
+            accord = accord + "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"my_id\" value=\"";
+            accord = accord + str[i].id_salon;
+            accord = accord + "\" style='visibility:hidden;display:none'></div>"
+            accord = accord + "<button type=\"submit\" class=\"btn btn-success btn-lg btn-block\">Valider</button>"
+            accord = accord + "</form>";
+
+            accord = accord + "<form action=\"/list\" name=\"adduser\" method=\"post\">"
+            accord = accord + "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"my_id\" value=\"";
+            accord = accord + str[i].id_salon;
+            accord = accord + "\" style='visibility:hidden;display:none'></div>"
+            accord = accord + "<button type=\"submit\" class=\"btn btn-primary btn-lg btn-block\">Afficher la liste des visiteurs</button>"
+            accord = accord + "</form>";
+
+            accord = accord + "</div></div></div>";
+            document.getElementById("accordion").innerHTML += accord;
+            count++;
+        }
+        i++;
+    }
+</script>
+<% include common/footer %>

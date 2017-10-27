@@ -28,7 +28,8 @@ module.exports = class VisteurPersistence {
             "profil": visiteur.profil,
             "metier": visiteur.metier,
             "contact": visiteur.contact,
-            "jour": visiteur.date
+            "jour": visiteur.date,
+            "id_salon": visiteur.id_salon
         },
             function (err, doc) {
                 if (err) {

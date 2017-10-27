@@ -36,7 +36,7 @@ module.exports = function (app) {
                         }
                         while (result[nb])
                             nb++;
-                        res.render('common/concours', { str: randomItem, nb: nb });
+                        res.render('common/concours', { str: randomItem, nb: nb, list: result });
                         db.close();
                     }
                     else {
