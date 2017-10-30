@@ -1,6 +1,10 @@
 module.exports = function (app) {
     app.post('/password', function (req, res) {
         mdp = req.body.password;
+        /**
+         * Verifie le mdp, si il est bon renvoie la personne tirée au sort ainsi que la liste des visiteurs vers la
+         * page concours. Si aucun visiteur n'est inscrit le jour du tirage, renvoie vers la page wrong_concours
+         */
         if (mdp == "letirageausort") {
             var MongoClient = require('mongodb').MongoClient;
 

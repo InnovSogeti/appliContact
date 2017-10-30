@@ -13,7 +13,7 @@ module.exports = class VisteurPersistence {
         var obj = json; //tous le fichier JSON dans un obj
         var site_map = Object.keys(obj);
         var collect = json[site_map[3]];
-        var collection = this.db.get(collect);          
+        var collection = this.db.get(collect);
 
         // envoie à la bdd
         collection.insert({

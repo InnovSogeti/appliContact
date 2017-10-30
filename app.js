@@ -30,8 +30,6 @@ app.get('/config', function (req, res, next) {
   res.render('config', { title: 'Express' });
 });
 
-
-
 app.get('/login', function (req, res, next) {
   res.render('login', { title: 'Express' });
 });
@@ -39,8 +37,6 @@ app.get('/login', function (req, res, next) {
 app.get('/login_password', function (req, res, next) {
   res.render('login_password', { title: 'Express' });
 });
-
-
 
 app.get('/salon', function (req, res, next) {
   res.render('salon', { str: cam });

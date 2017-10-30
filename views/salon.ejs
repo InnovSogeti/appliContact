@@ -13,48 +13,48 @@
 
 <script>
     var i = 0;
-    var str = <%- JSON.stringify(str) %>;
+    var listeSalons = <%- JSON.stringify(str) %>;
     var count = 1;
     var z = 0;
 
-    while (str[i]) {
-        if (str[i].nom_salon != undefined) {
-            var accord = "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 class=\"panel-title\"><a data-toggle=\"collapse\" data-parent=\"#accordion\"href=\"#collapse";
+    while (listeSalons[i]) {
+        if (listeSalons[i].nom_salon != undefined) {
+            var htmlSalons = "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 class=\"panel-title\"><a data-toggle=\"collapse\" data-parent=\"#accordion\"href=\"#collapse";
             var liste;
-            accord = accord + count;
-            accord = accord + "\">";
-            accord = accord + str[i].nom_salon;
-            accord = accord + "</a></h4></div><div id=\"collapse"
-            accord = accord + count;
+            htmlSalons = htmlSalons + count;
+            htmlSalons = htmlSalons + "\">";
+            htmlSalons = htmlSalons + listeSalons[i].nom_salon;
+            htmlSalons = htmlSalons + "</a></h4></div><div id=\"collapse"
+            htmlSalons = htmlSalons + count;
             if (count == 1)
-                accord = accord + "\" class=\"panel-collapse collapse in\"><div class=\"panel-body\">";
+                htmlSalons = htmlSalons + "\" class=\"panel-collapse collapse in\"><div class=\"panel-body\">";
             else
-                accord = accord + "\" class=\"panel-collapse collapse\"><div class=\"panel-body\">";
-            accord = accord + "Ville : ";
-            accord = accord + str[i].ville_salon;
-            accord = accord + "</br>Description : ";
-            accord = accord + str[i].description;
-            accord = accord + "</br>Date de début : ";
-            accord = accord + str[i].date_debut;
-            accord = accord + "</br>Date de fin : ";
-            accord = accord + str[i].date_fin;
+                htmlSalons = htmlSalons + "\" class=\"panel-collapse collapse\"><div class=\"panel-body\">";
+            htmlSalons = htmlSalons + "Ville : ";
+            htmlSalons = htmlSalons + listeSalons[i].ville_salon;
+            htmlSalons = htmlSalons + "</br>Description : ";
+            htmlSalons = htmlSalons + listeSalons[i].description;
+            htmlSalons = htmlSalons + "</br>Date de début : ";
+            htmlSalons = htmlSalons + listeSalons[i].date_debut;
+            htmlSalons = htmlSalons + "</br>Date de fin : ";
+            htmlSalons = htmlSalons + listeSalons[i].date_fin;
 
-            accord = accord + "<form action=\"/addid\" name=\"adduser\" method=\"post\">"
-            accord = accord + "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"my_id\" value=\"";
-            accord = accord + str[i].id_salon;
-            accord = accord + "\" style='visibility:hidden;display:none'></div>"
-            accord = accord + "<button type=\"submit\" class=\"btn btn-success btn-lg btn-block\">Valider</button>"
-            accord = accord + "</form>";
+            htmlSalons = htmlSalons + "<form action=\"/addid\" name=\"adduser\" method=\"post\">"
+            htmlSalons = htmlSalons + "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"my_id\" value=\"";
+            htmlSalons = htmlSalons + listeSalons[i].id_salon;
+            htmlSalons = htmlSalons + "\" style='visibility:hidden;display:none'></div>"
+            htmlSalons = htmlSalons + "<button type=\"submit\" class=\"btn btn-success btn-lg btn-block\">Valider</button>"
+            htmlSalons = htmlSalons + "</form>";
 
-            accord = accord + "<form action=\"/list\" name=\"adduser\" method=\"post\">"
-            accord = accord + "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"my_id\" value=\"";
-            accord = accord + str[i].id_salon;
-            accord = accord + "\" style='visibility:hidden;display:none'></div>"
-            accord = accord + "<button type=\"submit\" class=\"btn btn-primary btn-lg btn-block\">Afficher la liste des visiteurs</button>"
-            accord = accord + "</form>";
+            htmlSalons = htmlSalons + "<form action=\"/list\" name=\"adduser\" method=\"post\">"
+            htmlSalons = htmlSalons + "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"my_id\" value=\"";
+            htmlSalons = htmlSalons + listeSalons[i].id_salon;
+            htmlSalons = htmlSalons + "\" style='visibility:hidden;display:none'></div>"
+            htmlSalons = htmlSalons + "<button type=\"submit\" class=\"btn btn-primary btn-lg btn-block\">Afficher la liste des visiteurs</button>"
+            htmlSalons = htmlSalons + "</form>";
 
-            accord = accord + "</div></div></div>";
-            document.getElementById("accordion").innerHTML += accord;
+            htmlSalons = htmlSalons + "</div></div></div>";
+            document.getElementById("accordion").innerHTML += htmlSalons;
             count++;
         }
         i++;

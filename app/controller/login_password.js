@@ -1,4 +1,9 @@
 module.exports = function (app) {
+
+    /**
+     * verifie le mdp entré par le visiteur
+     * si il est bon renvoie la liste des salons vers la page salon
+     */
     app.post('/login_password', function (req, res) {
         mdp = req.body.password;
         if (mdp == "a") {

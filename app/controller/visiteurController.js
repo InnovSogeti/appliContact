@@ -4,6 +4,14 @@ module.exports = function (app, visiteurPersistence) {
         return(data);
     }
 
+
+    /**
+     * 
+     * @param {*} metier 
+     * @param {*} profil 
+     * Permet de verifier ce qui est conntenu dans "metier" et de garder que les metiers qui corresponde au profil
+     * renvoie un tableau qui contient les metiers
+     */
     function check_profil(metier, profil) {
         var fs = require('fs');
         var json = JSON.parse(fs.readFileSync('./public/config.json', 'utf8'));
@@ -15,7 +23,6 @@ module.exports = function (app, visiteurPersistence) {
         var k = 0;
         var my_profil;
         var res = [];
-
         my_profil = json[file[i]].split(',');
         while (my_profil[0] != profil){
             if (i > 0)
@@ -46,6 +53,12 @@ module.exports = function (app, visiteurPersistence) {
         return (res);
     }
 
+    /**
+     * 
+     * @param {*} visiteur
+     * @param {*} callback
+     * Permet de vérifier si le visiteur est déjà inscrit ou non si c'est le cas pas de persistance 
+     */
     function get(visiteur, callback) {
         var MongoClient = require('mongodb').MongoClient;
         var url = "mongodb://localhost:27017/appliContact";
@@ -68,6 +81,13 @@ module.exports = function (app, visiteurPersistence) {
         });
      }
 
+
+     /**
+      * met les informations du visiteur dans un objet "visiteur"
+      * si l'utilisateur a choisi un profil son obj et son profil est envoyé vers la fonction check_profil psui vers get puis vers la page index
+      * si le visiteur veut etre recontacté mais ne met pas de profil, redirection vers la fonction get puis vers la page index
+      * si le visiteur ne veut pas etre recontacté redirection vers get puis vers la page index
+      */
     app.post('/adduser', function (req, res) {
         var maintenant=new Date();
         var jour=maintenant.getDate();
