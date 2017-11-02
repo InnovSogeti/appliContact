@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="0.009" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2017-11-02T09:00:24" tests="1" failures="0" time="0.009">
-    <testcase name=" should pass object with correct values to save only once" time="0.009" classname="should pass object with correct values to save only once">
+<testsuites name="Mocha Tests" time="0.013000000000000001" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2017-11-02T10:14:13" tests="1" failures="0" time="0.012">
+    <testcase name=" should pass object with correct values to save only once" time="0.012" classname="should pass object with correct values to save only once">
     </testcase>
   </testsuite>
+  <testsuite name="save" timestamp="2017-11-02T10:14:13" tests="1" file="C:\Users\cpinsard\Documents\PROJET_APPLI_RH\appliContact\tests\persistence\visiteurPersistenceTest.js" failures="0" time="0.001">
+    <testcase name="save should work" time="0.001" classname="should work">
+    </testcase>
+  </testsuite>
+  
 </testsuites>

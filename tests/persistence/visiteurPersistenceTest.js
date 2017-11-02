@@ -10,15 +10,23 @@ var visiteur = {
     telephone: '0241414141',
     linkedin: 'inutile',
     viadeo: 'inutile2',
-    competenceInfra: 'non',
-    competenceDigital: 'oui',
-    competenceTest: 'non',
     jeuMario: 'oui',
     jeuPepper: 'non',
-    jeuPhoto: 'non'
+    profil: 'Testing',
+    metier: '_Chef_de_projet_testing',
+    contact: 'oui',
+    jour: '10',
+    id_salon: 'DevFest2017-10-102017-10-10' 
+    
 };
 
-visiteurPersistence.save(visiteur);
+function callback(data)
+{
+    return(data);
+}
+
+visiteurPersistence.save(visiteur, callback);
+console.log(visiteur.id_salon);
 
 var collection = visiteurPersistence.db.get('visiteurs');
 describe('save', function () {
@@ -30,12 +38,14 @@ describe('save', function () {
             assert.equal(doc.telephone,visiteur.telephone);
             assert.equal(doc.linkedin, visiteur.linkedin);
             assert.equal(doc.viadeo, visiteur.viadeo);
-            assert.equal(doc.competenceInfra, visiteur.competenceInfra);
-            assert.equal(doc.competenceDigital, visiteur.competenceDigital);
-            assert.equal(doc.competenceTest, visiteur.competenceTest);
             assert.equal(doc.jeuMario, visiteur.jeuMario);
             assert.equal(doc.jeuPepper, visiteur.jeu);
-            assert.equal(doc.jeuPhoto, visteur.jeuPhoto);
+            assert.equal(doc.profil, visiteur.profil);
+            assert.equal(doc.metier, visiteur.metier);
+            assert.equal(doc.contact, visiteur.contact);
+            assert.equal(doc.jour, visiteur.jour);
+            assert.equal(doc.id_salon, 'gefsyf');
+            
         })  
     });
 });
