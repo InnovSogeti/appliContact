@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.009" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2017-11-02T09:00:24" tests="1" failures="0" time="0.009">
+    <testcase name=" should pass object with correct values to save only once" time="0.009" classname="should pass object with correct values to save only once">
+    </testcase>
+  </testsuite>
+</testsuites>
