@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-        <% include common/header %>
-        
-        <script type="text/javascript"  src="/javascripts/scannedText.js"></script>
-        <div class="container">
-            <div class="card">
-                <form action="/adduser" name="adduser" method="post">
-                    <% include common/infos_perso%>
+<html>
+<% include common/header %>
+
+    <script type="text/javascript" src="/javascripts/scannedText.js"></script>
+    <div class="container">
+        <div class="card">
+            <form action="/adduser" name="adduser" method="post">
+                <% include common/infos_perso%>
                     <div class="form-group" id="form">
                         <% include common/infos_competences%>
                     </div>
@@ -21,17 +22,17 @@
                             id_form = id_form + my_id;
                             id_form = id_form + "\" style='visibility:hidden;display:none'></div>"
                             document.getElementById("form").innerHTML += id_form;
-                        }
-                        else {
-                            document.location.href="http://localhost:3000/login";
+                        } else {
+                            document.location.href = "http://localhost:3000/login";
                         }
                     </script>
                     <label>* : Champs obligatoire</label>
                     </br>
                     </br>
-                </form>
-            </div>
+            </form>
         </div>
+    </div>
     </body>
     <% include common/footer %>
+
 </html>

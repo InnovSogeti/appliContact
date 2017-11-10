@@ -1,0 +1,78 @@
+<% include common/header %>
+    <div class="container">
+        </br>
+        <div id="random">
+            <ul class="name">
+            </ul>
+        </div>
+        </br>
+    </div>
+    <script>
+        var str = <%- JSON.stringify(str) %>;
+        if (str != undefined) {
+            var firstname = "\<li\>Prenom : ";
+            firstname = firstname + str.prenom;
+            firstname = firstname + "\</li\>";
+            $("ul").append(firstname);
+            var name = "\<li\>Nom : ";
+            name = name + str.nom;
+            name = name + "\</li\>";
+            $("ul").append(name);
+            var email = "\<li\>Email : ";
+            email = email + str.email;
+            email = email + "\</li\>";
+            $("ul").append(email);
+        }
+    </script>
+
+    <div class="container">
+        </br>
+        Liste des visiteurs :
+        <div id="stat">
+            <p class="stat">
+            </p>
+        </div>
+    </div>
+
+    <div class="container" id="tab">
+        </br>
+    </div>
+    </br>
+    <script>
+        var nb = <%- JSON.stringify(nb) %>;
+        var list = <%- JSON.stringify(list) %>;
+        var i = 0;
+        var htmlList = "<table><tr><th>Nom</th><th>Prenom</th><th>Email</th></tr>";
+
+        while (list[i]) {
+            htmlList = htmlList + "<tr><td>";
+            htmlList = htmlList + list[i].nom;
+            htmlList = htmlList + "</td><td>";
+            htmlList = htmlList + list[i].prenom;
+            htmlList = htmlList + "</td><td>";
+            htmlList = htmlList + list[i].email;
+            htmlList = htmlList + "</td></tr>";
+            i++;
+        }
+        htmlList = htmlList + "</table>"
+        document.getElementById("tab").innerHTML += htmlList;
+    </script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <% include common/footer %>

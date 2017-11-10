@@ -1,11 +1,11 @@
 module.exports = class VisteurPersistence {
 
     constructor(db) {
-        this.db = db;
-    }
-    /**
-     * Enregistrer le visiteur
-     */
+            this.db = db;
+        }
+        /**
+         * Enregistrer le visiteur
+         */
 
     save(visiteur, callback) {
         var fs = require('fs');
@@ -17,29 +17,26 @@ module.exports = class VisteurPersistence {
 
         // envoie à la bdd
         collection.insert({
-            "prenom": visiteur.prenom,
-            "nom": visiteur.nom,
-            "email": visiteur.email,
-            "telephone": visiteur.telephone,
-            "linkedin": visiteur.linkedin,
-            "viadeo": visiteur.viadeo,
-            "jeuMario": visiteur.jeuMario,
-            "jeuPepper": visiteur.jeuPepper,
-            "profil": visiteur.profil,
-            "metier": visiteur.metier,
-            "contact": visiteur.contact,
-            "jour": visiteur.date,
-            "id_salon": visiteur.id_salon
-        },
-            function (err, doc) {
+                "prenom": visiteur.prenom,
+                "nom": visiteur.nom,
+                "email": visiteur.email,
+                "telephone": visiteur.telephone,
+                "linkedin": visiteur.linkedin,
+                "viadeo": visiteur.viadeo,
+                "jeuMario": visiteur.jeuMario,
+                "jeuPepper": visiteur.jeuPepper,
+                "profil": visiteur.profil,
+                "metier": visiteur.metier,
+                "contact": visiteur.contact,
+                "jour": visiteur.date,
+                "id_salon": visiteur.id_salon
+            },
+            function(err, doc) {
                 if (err) {
-                    // error
-                    //res.send("There was a problem adding the information to the database.");
+                    throw error
                 }
-                else {
-                    console.log('=> Inscription de ' + visiteur.prenom + ' ' + visiteur.nom);
-                }
+                console.log('=> Inscription de ' + visiteur.prenom + ' ' + visiteur.nom);
             });
-            callback("ok");
+        callback("ok");
     }
-}
+};
