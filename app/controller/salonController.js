@@ -1,4 +1,4 @@
-module.exports = function (app, salonPersistence) {
+module.exports = function(app, salonPersistence) {
     function callback(data) {
         return (data);
     }
@@ -7,7 +7,7 @@ module.exports = function (app, salonPersistence) {
      *Permet de lister tous les visiteurs 
      *pour la page list_visiteur de la page salon
      */
-    app.post('/list', function (req, res) {
+    app.post('/list', function(req, res) {
         var MongoClient = require('mongodb').MongoClient;
         var fs = require('fs');
         var json = JSON.parse(fs.readFileSync('./public/site_map.json', 'utf8'));
@@ -18,9 +18,9 @@ module.exports = function (app, salonPersistence) {
         var url = "mongodb://localhost:27017/";
 
         url = url + bdd;
-        MongoClient.connect(url, function (err, db) {
+        MongoClient.connect(url, function(err, db) {
             if (err) throw err;
-            db.collection(collection).find({}).toArray(function (err, result) {
+            db.collection(collection).find({}).toArray(function(err, result) {
                 if (err) throw err;
                 res.render('list_visiteur', { list: result, my_id: req.body.my_id });
                 db.close();
@@ -33,12 +33,11 @@ module.exports = function (app, salonPersistence) {
      * renvoie l'id et le choix de la cam
      * de la page salon pour la page index
      */
-    app.post('/addid', function (req, res) {
+    app.post('/addid', function(req, res) {
         var fs = require('fs');
         var cam = JSON.parse(fs.readFileSync('./public/site_map.json', 'utf8'));
         var obj = cam; //tous le fichier JSON dans un obj
         var site_map = Object.keys(obj);
-        var bdd = cam[site_map[2]];
 
         res.render('index', { my_id: req.body.my_id, cam: cam[site_map[1]] });
     });
@@ -48,9 +47,8 @@ module.exports = function (app, salonPersistence) {
      * Ajoute un salon
      * de la page  salon pour la page login
      */
-    app.post('/addsalon', function (req, res) {
+    app.post('/addsalon', function(req, res) {
         var id = req.body.nom_salon + req.body.debut_salon + req.body.fin_salon;
-        console.log(id);
         var salon = {
             nom: req.body.nom_salon,
             ville: req.body.ville_salon,
@@ -60,6 +58,6 @@ module.exports = function (app, salonPersistence) {
             id_salon: id
         };
         salonPersistence.save(salon, callback);
-        res.render('login', { str: 'OK' }); 
+        res.render('login', { str: 'OK' });
     });
-}
+};

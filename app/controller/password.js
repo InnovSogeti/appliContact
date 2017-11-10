@@ -1,6 +1,6 @@
-module.exports = function (app) {
-    app.post('/password', function (req, res) {
-        mdp = req.body.password;
+module.exports = function(app) {
+    app.post('/password', function(req, res) {
+        var mdp = req.body.password;
         /**
          * Verifie le mdp, si il est bon renvoie la personne tirée au sort ainsi que la liste des visiteurs vers la
          * page concours. Si aucun visiteur n'est inscrit le jour du tirage, renvoie vers la page wrong_concours
@@ -21,9 +21,9 @@ module.exports = function (app) {
 
             var url = "mongodb://localhost:27017/";
             url = url + bdd;
-            MongoClient.connect(url, function (err, db) {
+            MongoClient.connect(url, function(err, db) {
                 if (err) throw err;
-                db.collection(collection).find({}).toArray(function (err, result) {
+                db.collection(collection).find({}).toArray(function(err, result) {
                     if (err) throw err;
                     var maintenant = new Date();
                     var jour = maintenant.getDate();
@@ -40,19 +40,17 @@ module.exports = function (app) {
                         }
                         while (result[nb])
                             nb++;
-                        res.render('common/concours', { str: randomItem, nb: nb, list: result });
+                        res.render('concours', { str: randomItem, nb: nb, list: result });
                         db.close();
-                    }
-                    else {
+                    } else {
                         while (result[nb])
                             nb++;
                         db.close();
-                        res.render('common/wrong_concours', { nb: nb });
+                        res.render('wrong_concours', { nb: nb });
                     }
                 });
             });
-        }
-        else {
+        } else {
             res.redirect('/config');
         }
     });
